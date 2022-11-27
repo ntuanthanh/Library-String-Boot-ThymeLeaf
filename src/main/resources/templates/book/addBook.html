@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+     <table>
+	     <form th:action ="@{add}" method = "POST">
+           Name book : <input type = "text" name = "name"/><br> 
+	       Description : <input type = "text" name = "description"/><br>
+	       Image : <input type = "text" name = "image" /></br> 
+	       Author : <input type = "text" name = "author" /></br>
+	       <select name = "category_id">
+		       <th:block th:each ="category : ${categories}">                
+		          <option th:value = "${category.id}" th:text = "${category.name}"></option>    	       
+		       </th:block>
+	       </select></br> 
+	       Publication year : <input type = "text" name = "publicationYear" /></br>
+	       <input type = "submit" value = "Add" /> 
+	     </form>
+     </table>
+</body>
+</html>

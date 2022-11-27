@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+    <!--  
+    <form th:action ="@{update}" method = "POST">
+           <input hidden type = "type" name = "id" th:value = "${book.id}" />
+           Name book : <input type = "text" name = "name" th:value = "${book.name}" /><br> 
+	       Description : <input type = "text" name = "description" th:value = "${book.description}" /><br>
+	       Image : <input type = "text" name = "image" th:value = "${book.image}" /></br> 
+	       Author : <input type = "text" name = "author" th:value = "${book.author}" /></br>
+	       <select name = "category_id">
+		       <th:block th:each ="category : ${categories}">                
+		          <option th:if="${category.id == book.category.id} " selected = "selected" th:value = "${category.id}" th:text = "${category.name}"></option>   
+		          <option th:unless="${category.id == book.category.id} " th:value = "${category.id}" th:text = "${category.name}"></option> 	       
+		       </th:block>
+	       </select></br> 
+	       Publication year : <input type = "text" name = "publicationYear" th:value = "${book.publicationYear}" /></br>
+	       <input type = "submit" value = "Add" /> 
+	</form>
+	-->
+	 <form th:action ="@{update}" th:object = "${book}" method = "POST">
+           <input hidden type = "text" th:field = "*{id}" />
+           Name book : <input type = "text" th:field = "*{name}" /><br> 
+	       Description : <input type = "text" th:field = "*{description}" /><br>
+	       Image : <input type = "text" th:field = "*{image}" /></br> 
+	       Author : <input type = "text" th:field = "*{author}" /></br>
+	       <select th:field = "*{category}">
+		       <th:block th:each ="category : ${categories}">                
+		          <option th:if="${category.id == book.category.id}" selected = "selected" th:value = "${category.id}" th:text = "${category.name}"></option>   
+		          <option th:unless="${category.id == book.category.id}" th:value = "${category.id}" th:text = "${category.name}"></option> 	       
+		       </th:block>
+	       </select></br> 
+	       Publication year : <input type = "text" name = "publicationYear" th:value = "*{publicationYear}" /></br>
+	       <input type = "submit" value = "Update" /> 
+	</form>	
+   <a th:href = "@{list}">List Book</a>
+</body>
+</html>

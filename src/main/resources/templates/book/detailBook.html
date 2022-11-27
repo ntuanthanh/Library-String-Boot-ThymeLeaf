@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+     <div style = "margin-left: 500px">
+	     Name book <h3 th:text = "${book.name}"></h3></br>
+	     Description : <h3 th:text = "${book.description}"></h3></br>
+	     Image : <img width="100px" height="100px" th:src="@{${book.image}}"></br>
+	     Author : <h3 th:text = "${book.author}"></h3></br>
+	     Category : <h3 th:text = "${book.category.name}"></h3></br>
+	     <a th:href = "@{list}">List Book</a>
+     </div>
+</body>
+</html>

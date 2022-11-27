@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+   <table border = "1px">
+      <tr>
+         <th>STT</th>
+         <th>Name Book</th>
+         <th>Author</th>
+         <th>Publication Year</th>
+         <th>Detail</th>
+         <th>Delete</th>
+         <th>Update</th>
+      </tr>
+       <!--
+        <tr th:each = "category, iState : ${categories}">
+          <td th:text = "${iState.index + 1}" ></td>
+          <td th:text = "${category.name}"></td>
+        </tr> 
+       -->
+       <th:block th:each ="book , iState : ${books}">
+          <tr>
+             <td th:text = "${iState.index + 1}"></td>
+             <td th:text = "${book.name}" ></td>
+             <td th:text = "${book.author}" ></td>
+             <td th:text = "${book.publicationYear}" ></td>
+             <td><a th:href = "@{'detail?id=' + ${book.id}}">Detail</a></td>
+             <td><a th:href = "@{'delete?id=' + ${book.id}}">Delete</a></td>
+             <td><a th:href = "@{'update?id=' + ${book.id}}">Update</a></td>
+          </tr>
+       </th:block>
+   </table>
+   <a th:href = "@{add}">Add Book</a></br>
+   <a th:href = "@{search}">Searching</a></br>
+   <a th:href = "@{search/v2}">Searching and paging</a>
+</body>
+</html>

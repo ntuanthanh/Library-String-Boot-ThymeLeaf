@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+   <table border = "1px">
+      <tr>
+         <th>STT</th>
+         <th>Name</th>
+         <th>Delete</th>
+         <th>Update</th>
+      </tr>
+       <!--
+        <tr th:each = "category, iState : ${categories}">
+          <td th:text = "${iState.index + 1}" ></td>
+          <td th:text = "${category.name}"></td>
+        </tr> 
+       -->
+       <th:block th:each ="category , iState : ${categories}">
+          <tr>
+             <td th:text = "${iState.index + 1}"></td>
+             <td th:text = "${category.name}" ></td>
+             <!-- Vd query param nhiều trường : generate ra /delete?id=1&name=IT -->
+             <!--  <td><a th:href = "@{delete( id=${category.id}, name = ${category.name} )}">Delete</a></td>  -->
+             <td><a th:href = "@{'delete?id=' + ${category.id}}">Delete</a></td>
+             <td><a th:href = "@{update}">Update</a></td>
+          </tr>
+       </th:block>
+   </table>
+   <a th:href = "@{add}">Add category</a>
+</body>
+</html>
